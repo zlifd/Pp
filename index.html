@@ -1,0 +1,524 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI Symbol";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"\@PMingLiU";
+	panose-1:2 1 6 1 0 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:595.0pt 842.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-HK link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><i><u><span lang=EN-US style='font-size:18.0pt;
+font-family:"Times New Roman",serif;color:black;border:none windowtext 1.0pt;
+padding:0cm'>Arduino with mini-robot car</span></u></i></b><span lang=EN-US
+style='font-size:18.0pt;font-family:"Times New Roman",serif;color:black;
+border:none windowtext 1.0pt;padding:0cm'> </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:18.0pt;font-family:"Times New Roman",serif;
+color:black;border:none windowtext 1.0pt;padding:0cm'>In this project, we used
+Arduino to control a mini-robot car following the tracks below. </span></p>
+
+<p class=MsoNormal><img width=303 height=222 id="Picture 1"
+src="supplementary%20letter%20.fld/image001.png"
+alt="Diagram&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=0
+ style='width:0cm;border-collapse:collapse'>
+ <tr>
+  <td width=61 valign=top style='width:45.75pt;border:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Case</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Left sensor</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Right sensor</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=80 valign=top style='width:60.0pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Bumper sensor</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Left motor rotation&nbsp;</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Right motor rotation</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=63 valign=top style='width:47.25pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>PWM</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Car movement</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=61 valign=top style='width:45.75pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=80 valign=top style='width:60.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>forward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>forward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=63 valign=top style='width:47.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>140</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>forward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=61 valign=top style='width:45.75pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>2</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>0V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=80 valign=top style='width:60.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>backward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>forward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=63 valign=top style='width:47.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>100</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Turn left</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=61 valign=top style='width:45.75pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>3</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>0V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=80 valign=top style='width:60.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>1V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>forward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>backward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=63 valign=top style='width:47.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>100</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Turn right</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=61 valign=top style='width:45.75pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>4</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>0V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=73 valign=top style='width:54.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>0V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=80 valign=top style='width:60.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>0V</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Backward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=79 valign=top style='width:59.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>Backward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=63 valign=top style='width:47.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>140</span><span style='font-family:
+  "Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+  <td width=89 valign=top style='width:66.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 0cm 0cm 0cm'>
+  <p class=MsoNormal style='vertical-align:baseline'><span lang=EN-US
+  style='font-family:"Times New Roman",serif'>backward</span><span
+  style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b><i><u><span style='font-size:20.0pt'>Smart Door Locking
+System</span></u></i></b><span style='font-size:20.0pt'> </span></p>
+
+<p class=MsoNormal><b><i><u><span style='font-size:20.0pt'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></i></b></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>In this project, we used Keil
+and CubeMx to implement a smart door locking system using STM32. The motor
+represented the door. If user typed in correct password through the keypad, the
+door opens and the green lights on, else, the door remained close and red light
+on. If 3 consecutive wrong inputs were detected, the buzzer produced noise for
+warning and sent alert message to the phone of owner though bluetooth. </span></p>
+
+<p class=MsoNormal><img width=394 height=294 id="Picture 3"
+src="supplementary%20letter%20.fld/image002.jpg"
+alt="A picture containing text, indoor&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal><img width=466 height=263 id="Picture 2"
+src="supplementary%20letter%20.fld/image003.jpg"
+alt="Graphical user interface&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=EN-US>CubeMx Configuration</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>GPIO</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>PB0, PB1, PB5 -&gt; RGB LED</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>PC0, PC1, PE5, PE6, PA4, PA5, PA6 -&gt; keypad</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>RXD(PA9), TXD(PA10) -&gt; Bluetooth module HC-05
+</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>PB6 -&gt; motor</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>[reserve PC8 to PC12 for SDIO]</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Enable Real Time Clock (RTC) -&gt; get the time</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Enable FSMC -&gt; LCD</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Enable TIMER-&gt; rotation of the motor</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Use TIM3 and TIM4 to generate PWM</span></p>
+
+<p class=MsoNormal style='margin-left:72.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US> Pulse = 900__close the door, Pulse = 300__open
+the door</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Enable USART1 -&gt; make use of the HC-05</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt'><span
+style='font-family:"Segoe UI Symbol",sans-serif'>⬩<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US>Enable SDIO -&gt; make use of the Micro SD card </span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><i><u><span style='font-size:20.0pt'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></i></b></p>
+
+<p class=MsoNormal><b><i><u><span style='font-size:20.0pt'>Monster Matrix Game</span></u></i></b><span
+style='font-size:20.0pt'> </span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>In this project, we used the
+concept of linked list from C++ to implement a monster killing game. </span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:11.0pt'><img
+width=388 height=212 id="Picture 4"
+src="supplementary%20letter%20.fld/image004.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Upper case characters
+represent different type of monsters</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Lower case characters
+represent different type of  weapons</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Integer number represents the
+number of things(monster / weapon)</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Different monster can only be
+killed by specific weapon</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>Kill all the monster to win
+the game</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><i><u><span style='font-size:20.0pt'>Chatroom
+implementation </span></u></i></b></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>In this project, we used C
+language to perform a socket programming to implement a chatroom, a
+communication plateform for multiple users. </span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'><img width=451 height=245
+id="Picture 6" src="supplementary%20letter%20.fld/image005.png"></span></p>
+
+<p class=MsoNormal>Support multiple clients chat at the same time</p>
+
+<p class=MsoNormal>Support broadcast message and private message</p>
+
+<p class=MsoNormal>Each user has a unique name, Same name error checking</p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><i><u><span style='font-size:18.0pt;font-family:"Times New Roman",serif;
+color:black;border:none windowtext 1.0pt;padding:0cm'>Final Year Project </span></u></i></b></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:"Times New Roman",serif;
+color:black;border:none windowtext 1.0pt;padding:0cm'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:"Times New Roman",serif'>In
+this project, we use python to implement the GAN algorithm for image deblurring
+and train our model with the GOPRO dataset. Then, we test our model by
+recording the execution time for deblurring per image on a normal CPU. Next, we
+accelerate the algorithm using FPGA from PYNQ-Z2 board to see how much can be
+speeded up by comparing the execution time. </span></p>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt;color:red'><img width=451
+height=282 id="Picture 5" src="supplementary%20letter%20.fld/image006.png"
+alt="A picture containing timeline&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt;color:red'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'><a
+href="https://zlifd.github.io/main_page/"><span style='font-size:20.0pt;
+font-family:"Calibri",sans-serif;background:yellow'>MyHomePage</span></a></span></p>
+
+<p class=MsoNormal><span style='font-size:20.0pt'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
